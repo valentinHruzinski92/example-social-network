@@ -6,7 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   mode: 'development',
   entry: [
-    './index.ts'
+    './src/index.ts'
   ],
   devServer: {
     hot: true,
