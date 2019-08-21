@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import {App} from './app.component.ts'
+import {App} from './app.component'
 import './assets/app.less'
 
 new Vue({

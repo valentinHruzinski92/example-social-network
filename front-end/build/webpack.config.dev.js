@@ -50,5 +50,8 @@ module.exports = {
       template: 'index.html',
       inject: true
     })
-  ]
+  ],
+  resolve: {
+    extensions: ['.js', '.ts']
+  },
 }
