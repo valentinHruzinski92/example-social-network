@@ -1,6 +1,10 @@
-import Vue from 'vue'
-import {App} from './app.component'
-import './assets/app.less'
+import Vue from 'vue';
+
+import './assets/colors.less';
+import './assets/constants.less';
+import './assets/layout.less';
+
+import {App} from './app.component';
 
 new Vue({
   el: '#app',
