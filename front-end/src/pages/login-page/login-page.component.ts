@@ -1,7 +1,7 @@
-import Vue from 'vue'
-import Component from 'vue-class-component'
-import WithRender from './login-page.component.html';
-import './login-page.component.less';
+import Vue from "vue";
+import Component from "vue-class-component";
+import WithRender from "./login-page.component.html";
+import "./login-page.component.less";
 
 
 @WithRender

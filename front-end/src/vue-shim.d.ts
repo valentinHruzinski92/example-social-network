@@ -3,8 +3,8 @@ declare module "*.vue" {
     export default Vue;
 }
 
-declare module '*.html' {
-    import Vue, { ComponentOptions } from 'vue';
+declare module "*.html" {
+    import Vue, { ComponentOptions } from "vue";
 
     interface WithRender {
         <V extends Vue>(options: ComponentOptions<V>): ComponentOptions<V>
@@ -15,7 +15,7 @@ declare module '*.html' {
     export = withRender
 }
 
-declare module '*.less' {
+declare module "*.less" {
     const styles: string;
     export default styles;
 }
