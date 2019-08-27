@@ -2,6 +2,12 @@
 const webpack = require('webpack');
 const {VueLoaderPlugin} = require('vue-loader');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+const path = require('path');
+
+function resolve(dir) {
+  return path.join(__dirname, '..', dir)
+}
 
 module.exports = {
   mode: 'development',
@@ -57,7 +63,12 @@ module.exports = {
       filename: 'index.html',
       template: 'index.html',
       inject: true
-    })
+    }),
+    new CopyWebpackPlugin([{
+      from: resolve('assets/images'), // should be changed in future
+      to: resolve('dist/assets/images'),
+      toType: 'dir'
+    }])
   ],
   resolve: {
     extensions: ['.js', '.ts']
