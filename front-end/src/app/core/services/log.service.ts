@@ -1,3 +1,6 @@
+import {injectable} from "vue-typescript-inject";
+
+@injectable()
 export class LogService {
   constructor() {}
 
