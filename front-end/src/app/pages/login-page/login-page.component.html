@@ -1,4 +1,11 @@
 <div>
-    <input type="text" name="login">
-    <input type="text" name="password">
+  <form @submit.prevent="login">
+    <h1>Sign in</h1>
+    <label>User name</label>
+    <input required v-model="username" type="text" name="login">
+    <label>Password</label>
+    <input required v-model="password" type="text" name="password">
+    <hr/>
+    <button type="submit">Login</button>
+  </form>
 </div>
