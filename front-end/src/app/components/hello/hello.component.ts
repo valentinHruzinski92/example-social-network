@@ -17,6 +17,12 @@ import "./hello.component.less";
 export class HelloComponent extends Vue {
   constructor() {
     super();
+
+    this.$store.dispatch("setCurrentUser", {id: 2});
+  }
+
+  public getUser() {
+    return this.$store.getters.getCurrentUser;
   }
 
 }
