@@ -6,6 +6,7 @@ import WithRender from "./login-page.component.html";
 import "./login-page.component.less";
 
 import {LoginService} from "../../core";
+import {User} from "../../../models/user.model";
 
 @WithRender
 @Component({
@@ -14,7 +15,7 @@ import {LoginService} from "../../core";
 export class LoginPageComponent extends Vue {
   public username: string = "";
   public password: string = "";
-
+  public user: User = {};
 
   @inject(LoginService) private readonly loginService: LoginService;
 
@@ -22,12 +23,8 @@ export class LoginPageComponent extends Vue {
     super();
   }
 
-
-  public login() {
-    console.log("this.username, this.password", this.username, this.password);
-    this.loginService.login(this.username, this.password);
-
-    this.$store.dispatch("setCurrentUser", {id: ++this.$store.getters.getCurrentUser.id});
+  public async login(): Promise<void> {
+    this.user = await this.loginService.login(this.username, this.password);
   }
 }
 

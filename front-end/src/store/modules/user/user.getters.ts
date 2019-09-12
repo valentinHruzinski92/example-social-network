@@ -1,5 +1,6 @@
 import {GetterTree} from "vuex";
-import {UserState} from "./user-state.interface";
+
+import {UserState} from "./user.state";
 import {RootState} from "../../root-state.interface";
 
 

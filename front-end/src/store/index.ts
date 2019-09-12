@@ -2,7 +2,7 @@ import Vue from "vue";
 import Vuex, {StoreOptions} from "vuex";
 
 import {RootState} from "./root-state.interface";
-import {userModule} from "./modules/user/user";
+import {userModule} from "./modules/user/user.module";
 
 Vue.use(Vuex);
 

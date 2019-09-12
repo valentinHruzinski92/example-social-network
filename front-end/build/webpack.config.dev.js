@@ -20,7 +20,7 @@ module.exports = {
       poll: true
     }
   },
-
+  watch: true,
   module: {
     rules: [{
       test: /\.vue$/,
