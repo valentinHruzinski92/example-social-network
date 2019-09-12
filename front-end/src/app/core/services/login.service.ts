@@ -2,11 +2,13 @@ import {injectable} from "vue-typescript-inject";
 
 import {User} from "../../models/user.model";
 import {LoginState} from "../../store/modules/login/login.state";
-import store from "../../store";
+import {StoreService, StoreAction, StoreNamespace} from "./store.service";
+import {LocalStorageService} from "./local-storage.service";
 
 @injectable()
 export class LoginService {
-  constructor() {}
+  constructor(private storeService: StoreService,
+              private localStorageService: LocalStorageService) {}
 
   public login(username: string, password: string): Promise<any> {
     // should be request on backend
@@ -16,18 +18,18 @@ export class LoginService {
         const user: User = {id: 1, email: username, firstName: "Valentin", lastName: "Hruzinski"};
         const payload: LoginState = {user, token: "token123"};
 
-        store.dispatch("login", payload);
+        this.storeService.dispatch(StoreNamespace.LOGIN, StoreAction.LOGIN, payload);
         resolve(user);
 
         return;
       }
 
-      store.dispatch("loginError");
+      this.storeService.dispatch(StoreNamespace.LOGIN, StoreAction.LOGIN_ERROR);
       reject();
     });
   }
 
   public logout(): void {
-    store.dispatch("logout");
+    this.storeService.dispatch(StoreNamespace.LOGIN, StoreAction.LOGOUT);
   }
 }

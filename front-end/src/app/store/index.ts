@@ -12,8 +12,8 @@ const store: StoreOptions<RootState> = {
     version: "1.0.0"
   },
   modules: {
-    user: userModule,
-    login: loginModule,
+    user: {...userModule, namespaced: true},
+    login: {...loginModule, namespaced: true},
   }
 };
 

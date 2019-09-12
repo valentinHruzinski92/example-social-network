@@ -5,12 +5,12 @@ import {inject} from "vue-typescript-inject";
 import WithRender from "./login-page.component.html";
 import "./login-page.component.less";
 
-import {LoginService} from "../../core";
+import {LoginService, LocalStorageService, StoreService} from "../../core";
 import {User} from "../../models/user.model";
 
 @WithRender
 @Component({
-  providers: [LoginService]
+  providers: [LoginService, LocalStorageService, StoreService]
 })
 export class LoginPageComponent extends Vue {
   public username: string = "";
