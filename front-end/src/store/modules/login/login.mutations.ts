@@ -4,8 +4,6 @@ import {LoginState} from "./login.state";
 
 export const mutations: MutationTree<LoginState> = {
   login(state: LoginState, payload: any): void {
-    console.log('actions login');
-
     state.user = payload.user;
     state.token = payload.token;
     state.isAuthorized = true;
@@ -13,7 +11,7 @@ export const mutations: MutationTree<LoginState> = {
   },
   logout(state: LoginState): void {
     state.user = null;
-    state.token = '';
+    state.token = "";
     state.isAuthorized = false;
     state.isError = false;
   },

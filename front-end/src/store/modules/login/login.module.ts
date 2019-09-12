@@ -9,7 +9,7 @@ import {actions} from "./login.actions";
 const state: LoginState = {
   isAuthorized: false,
   user: null,
-  token: '',
+  token: "",
   isError: false
 };
 
