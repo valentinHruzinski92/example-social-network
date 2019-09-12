@@ -1,6 +1,6 @@
 import Vue from "vue";
 import VueTypeScriptInject from "vue-typescript-inject";
-import store from "./store";
+import store from "./app/store";
 
 import "./assets/colors.less";
 import "./assets/constants.less";

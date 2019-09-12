@@ -6,7 +6,7 @@ import WithRender from "./login-page.component.html";
 import "./login-page.component.less";
 
 import {LoginService} from "../../core";
-import {User} from "../../../models/user.model";
+import {User} from "../../models/user.model";
 
 @WithRender
 @Component({
