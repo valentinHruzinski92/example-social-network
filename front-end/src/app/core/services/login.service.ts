@@ -1,4 +1,5 @@
-import {injectable} from "vue-typescript-inject";
+import "reflect-metadata";
+import {injectable, inject} from "vue-typescript-inject";
 
 import {User} from "../../models/user.model";
 import {LoginState} from "../../store/modules/login/login.state";
@@ -7,8 +8,8 @@ import {LocalStorageService} from "./local-storage.service";
 
 @injectable()
 export class LoginService {
-  constructor(private storeService: StoreService,
-              private localStorageService: LocalStorageService) {}
+  constructor(@inject(StoreService) private storeService: StoreService,
+              @inject(LocalStorageService) private localStorageService: LocalStorageService) {}
 
   public login(username: string, password: string): Promise<any> {
     // should be request on backend

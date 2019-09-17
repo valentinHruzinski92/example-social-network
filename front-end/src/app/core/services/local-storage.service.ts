@@ -1,3 +1,4 @@
+import "reflect-metadata";
 import * as _ from "lodash";
 import {injectable} from "vue-typescript-inject";
 
