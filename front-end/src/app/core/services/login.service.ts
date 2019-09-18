@@ -1,36 +1,38 @@
 import "reflect-metadata";
-import {injectable, inject} from "vue-typescript-inject";
+import {injectable} from "vue-typescript-inject";
 
 import {User} from "../../models/user.model";
 import {LoginState} from "../../store/modules/login/login.state";
+import {LocalStorageItem} from "../../shared/local-storage-item.enum";
 import {StoreService, StoreAction, StoreNamespace} from "./store.service";
 import {LocalStorageService} from "./local-storage.service";
+import {LoginApiService} from "./api/login-api.service";
 
 @injectable()
 export class LoginService {
-  constructor(@inject(StoreService) private storeService: StoreService,
-              @inject(LocalStorageService) private localStorageService: LocalStorageService) {}
+  constructor(
+    private storeService: StoreService,
+    private localStorageService: LocalStorageService,
+    private loginApiService: LoginApiService
+  ) {}
 
   public login(username: string, password: string): Promise<any> {
-    // should be request on backend
-    return new Promise((resolve, reject) => {
-      if (true) {
-
-        const user: User = {id: 1, email: username, firstName: "Valentin", lastName: "Hruzinski"};
-        const payload: LoginState = {user, token: "token123"};
+    return this.loginApiService.login(username, password)
+      .then(({token, user}: { token: string, user: User }) => {
+        this.localStorageService.set(LocalStorageItem.TOKEN, token);
+        const payload: LoginState = {user, token};
 
         this.storeService.dispatch(StoreNamespace.LOGIN, StoreAction.LOGIN, payload);
-        resolve(user);
 
-        return;
-      }
-
-      this.storeService.dispatch(StoreNamespace.LOGIN, StoreAction.LOGIN_ERROR);
-      reject();
-    });
+        return user;
+      })
+      .catch((error) => {
+        this.storeService.dispatch(StoreNamespace.LOGIN, StoreAction.LOGIN_ERROR);
+      });
   }
 
   public logout(): void {
     this.storeService.dispatch(StoreNamespace.LOGIN, StoreAction.LOGOUT);
+    this.localStorageService.set(LocalStorageItem.TOKEN, "");
   }
 }

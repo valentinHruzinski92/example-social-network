@@ -64,11 +64,11 @@ module.exports = {
       template: 'index.html',
       inject: true
     }),
-    new CopyWebpackPlugin([{
-      from: resolve('assets/images'), // should be changed in future
-      to: resolve('dist/assets/images'),
-      toType: 'dir'
-    }])
+    // new CopyWebpackPlugin([{
+    //   from: resolve('assets/images'), // should be changed in future
+    //   to: resolve('dist/assets/images'),
+    //   toType: 'dir'
+    // }])
   ],
   resolve: {
     extensions: ['.js', '.ts']
