@@ -1,7 +1,7 @@
 import "reflect-metadata";
-import Vue from "vue";
 import VueTypeScriptInject from "vue-typescript-inject";
 import VueRouter from "vue-router";
+import {Vue} from "vue-property-decorator";
 
 import store from "./app/store";
 import router from "./app/router/app.router";
