@@ -1,6 +1,5 @@
 import Vue from "vue";
 import Component from "vue-class-component";
-import {inject} from "vue-typescript-inject";
 
 import WithRender from "./app.component.html";
 import "./app.component.less";
@@ -21,9 +20,4 @@ import {LoginService, LocalStorageService, StoreService, LoginApiService} from "
   providers: [LoginService, LocalStorageService, StoreService, LoginApiService]
 })
 export class App extends Vue {
-  // todo temporary solution.
-  @inject(LoginService) private readonly loginService: LoginService;
-  @inject(LocalStorageService) private readonly localStorageService: LocalStorageService;
-  @inject(StoreService) private readonly storeService: StoreService;
-  @inject(LoginApiService) private readonly loginApiService: LoginApiService;
 }

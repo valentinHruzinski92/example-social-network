@@ -1,4 +1,3 @@
-import "reflect-metadata";
 import {injectable} from "vue-typescript-inject";
 
 @injectable()

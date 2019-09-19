@@ -7,16 +7,19 @@ import "./hello.component.less";
 
 @WithRender
 @Component({
-  props: {
-    name: {
-      type: String,
-      required: true
-    }
-  }
+  // props: {
+  //   name: {
+  //     type: String,
+  //     required: true
+  //   }
+  // }
 })
 export class HelloComponent extends Vue {
+  public name: string = "";
+
   constructor() {
     super();
+
   }
 }
 

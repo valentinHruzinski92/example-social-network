@@ -1,3 +1,4 @@
+import "reflect-metadata";
 import Vue from "vue";
 import VueTypeScriptInject from "vue-typescript-inject";
 import VueRouter from "vue-router";
