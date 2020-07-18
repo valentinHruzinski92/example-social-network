@@ -13,7 +13,7 @@
   "dependencies": {
     "@babel/plugin-proposal-decorators": "^7.4.4",
     "less": "^3.10.2",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "reflect-metadata": "^0.1.13",
     "vue": "2.6.10",
     "vue-class-component": "^7.1.0",
